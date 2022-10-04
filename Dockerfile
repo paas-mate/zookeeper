@@ -1,4 +1,4 @@
-FROM ttbb/base:jdk11
+FROM ttbb/base:jdk17
 
 WORKDIR /opt/sh
 
@@ -8,7 +8,8 @@ RUN wget https://downloads.apache.org/zookeeper/zookeeper-$version/apache-zookee
 mkdir -p zookeeper && \
 tar -xf apache-zookeeper-$version-bin.tar.gz -C /opt/sh/zookeeper --strip-components 1 && \
 rm -rf apache-zookeeper-$version-bin.tar.gz && \
-rm -rf /opt/sh/zookeeper/docs
+rm -rf /opt/sh/zookeeper/docs && \
+rm -rf /opt/sh/zookeeper/bin/*.cmd
 
 ENV ZOOKEEPER_HOME /opt/sh/zookeeper
 
